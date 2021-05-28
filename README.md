@@ -5,6 +5,7 @@
 
 ## サンプル
 
+```
 ~/common-lisp						; asdf がシステムを見つけるデフォルトのフォルダ(この中にシステムフォルダを設置)
    └── asdf3-sample					; システム用フォルダ
       ├── asdf3-sample.asd			; システム定義ファイル
@@ -14,9 +15,11 @@
       │   └── util.lisp				; 1 番目に読み込む必要のあるファイル
       └── tests
           └── util-tests.lisp		; (テスト用. まだ完成していない)
+```
 
 ## 動作確認
 
+```
 ; システム(ライブラリー) の読み込み
 (load "~/common-lisp/asdf3-sample/src/util.lisp")
 (load "~/common-lisp/asdf3-sample/package.lisp")
@@ -30,15 +33,22 @@ are           ; fib 2
 (+ sore are)  ; fib 3
 (+ sore are)  ; fib 4
 (+ sore are)  ; fib 5
+```
 
-## システムの開発者にもメリットがある
+### システムの開発時のメリット
 
 - システム配下のソースファイルを更新した場合に、再コンパイル＆ロードが必要なファイルを自動的に判断して処理
-    (asdf:load-system :asdf3-sample)
+```
+(asdf:load-system :asdf3-sample)
+```
 - 自動テスト(現在動作しませんが、雰囲気だけのっけておきます)
-    (asdf:operate 'asdf:test-op "asdf3-sample/util")
+```
+(asdf:operate 'asdf:test-op "asdf3-sample/util")
+```
 - 実行バイナリー作成(現在動作しませんが、雰囲気だけのっけておきます)
-    (asdf:operate 'asdf:monolithic-compile-bundle-op "asdf3-sample/executable")
+```
+(asdf:operate 'asdf:monolithic-compile-bundle-op "asdf3-sample/executable")
+```
 
-# (参考) ASDF 和訳
+# (参考テキスト) ASDF 和訳
 https://privet-kitty.github.io/misc/asdf-ja
