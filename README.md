@@ -17,15 +17,44 @@
           └── util-tests.lisp		; (テスト用. まだ完成していない)
 ```
 
+### サンプルプログラムの内容
+
+Common Lisp にあるREPL の履歴を記録する変数 *, **
+
+http://www.lispworks.com/documentation/HyperSpec/Body/v__stst_.htm
+
+に、
+- * ... それ sore
+- ** ... あれ are
+という別名をつけるだけのもの。
+
+実行イメージ:
+```
+1
+sore	; *  (１つ前) => 1
+are		; ** (２つ前) => 1
+```
+
 ## 動作確認
 
 ```
 ; システム(ライブラリー) の読み込み
 (load "~/common-lisp/asdf3-sample/src/util.lisp")
 (load "~/common-lisp/asdf3-sample/package.lisp")
-; ↑と同じことが(たとえファイル数が膨大なシステムであっても)次の一行で済む(コンパイルも実行される)
+; システムを使用したプログラムを実行
+(in-package :asdf3-sample)
+1
+sore          ; fib 1
+are           ; fib 2
+(+ sore are)  ; fib 3
+(+ sore are)  ; fib 4
+(+ sore are)  ; fib 5
+```
+↑ と同じことが(たとえファイル数が膨大なシステムであっても)次の一行で済む(コンパイルも実行される)
+
+```
 (asdf:load-system :asdf3-sample)    ; 処理系によっては (require :asdf3-sample) でも同じ結果になる(例: sbcl)
-; システムを使用したプログラム
+; システムを使用したプログラムを実行
 (in-package :asdf3-sample)
 1
 sore          ; fib 1
