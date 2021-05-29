@@ -24,7 +24,7 @@ Common Lisp にあるREPL の履歴を記録する変数 *, **
 http://www.lispworks.com/documentation/HyperSpec/Body/v__stst_.htm
 
 に、
-- * ... それ sore
+- \* ... それ sore
 - ** ... あれ are
 という別名をつけるだけのもの。
 
@@ -53,7 +53,9 @@ are           ; fib 2
 ↑ と同じことが(たとえファイル数が膨大なシステムであっても)次の一行で済む(コンパイルも実行される)
 
 ```
-(asdf:load-system :asdf3-sample)    ; 処理系によっては (require :asdf3-sample) でも同じ結果になる(例: sbcl)
+(asdf:load-system :asdf3-sample)    ; 処理系によっては
+(require :asdf3-sample)
+でも同じ結果になる(例: sbcl)
 ; システムを使用したプログラムを実行
 (in-package :asdf3-sample)
 1
